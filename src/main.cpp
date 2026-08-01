@@ -3,9 +3,30 @@
 #include <vector>
 using namespace std;
 
+bool checkWin(const vector<vector<char>>& board, char symbol){
+    for(int i = 0; i < 3; i++){
+        if (board[i][0] == symbol && board[i][1] == symbol && board[i][2] == symbol){
+            return true;
+        }
+    }
+    for(int j = 0; j < 3; j++){
+        if(board[0][j] == symbol && board[1][j] == symbol && board[2][j] == symbol){
+            return true;
+        }
+    }
+    if(board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol){
+        return true;
+    }
+    if(board[0][2] == symbol && board[1][1] == symbol && board[2][0] == symbol){
+        return true;
+    }
+    return false;
+}
+
+
 void printBoard(const vector<vector<char>>& board){
     // loop through rows 
-    for (int i = 0; i < 3; i++){
+    for(int i = 0; i < 3; i++){
         // loop through each column in row
         cout << " ";
         for(int j = 0; j < 3; j++){
@@ -23,7 +44,7 @@ void printBoard(const vector<vector<char>>& board){
 }
 
 void makeMove(vector<vector<char>>& board, int playerRow, int playerCol, char symbol){
-    if (board[playerRow][playerCol] != ' '){
+    if(board[playerRow][playerCol] != ' '){
         cout << "Move is invalid" << endl;
     }
     else{
@@ -36,7 +57,7 @@ int getValidInput(string prompt){
     while (true) {
         cout << prompt;
         cin >> value;
-        if (cin.fail()) {
+        if(cin.fail()) {
             cout << "Invalid input, try again." << endl;
             cin.clear();
             cin.ignore(10000, '\n');
@@ -64,6 +85,7 @@ int main() {
     vector<char> row(3, ' '); // template row 
     vector<vector<char>> board(3,row); // template columns 
 
+    bool gameOver = false;
 
     for(int move = 0; move < 9; move++){
 
@@ -74,6 +96,11 @@ int main() {
             int playerCol = getValidInput("Enter column:");
             makeMove(board, playerRow, playerCol, player1Symbol);
             printBoard(board);
+            if(checkWin(board,player1Symbol)){
+                gameOver = true;
+                cout << "Player1 Wins!";
+                break;
+            }
         }
         else{
             cout << "Player 2 makes a move:" << endl;
@@ -82,7 +109,15 @@ int main() {
             int playerCol = getValidInput("Enter column:");
             makeMove(board, playerRow, playerCol, player2Symbol);
             printBoard(board);
+            if(checkWin(board,player2Symbol)){
+                gameOver = true;
+                cout << "Player2 Wins!";
+                break;
+            }
         }
+    }
+    if(gameOver == false){
+        cout << "It is a draw!";
     }
     return 0;
 }
