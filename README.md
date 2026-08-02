@@ -1,6 +1,6 @@
 # Tic-Tac-Toe (C++)
 
-A terminal-based tic-tac-toe game built in C++ for practicing OOP and game-loop logic
+![Simple Tic Tac Toe Game In C++](./Simple_Tic_Tac_Toe_Game_In_C++.png)
 
 ## How to build
 \`\`\`bash
