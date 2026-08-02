@@ -1,11 +1,9 @@
-# Tic-Tac-Toe (C++)
-
 ![Simple Tic Tac Toe Game In C++](./Simple_Tic_Tac_Toe_Game_In_C++.png)
 
+A terminal-based, two-player tic-tac-toe game built in C++, focused on practicing core language fundamentals — functions, 2D vectors, pass-by-reference, control flow, and a complete game loop with input validation and win/draw detection.
+
 ## How to build
-\`\`\`bash
-g++ -std=c++17 -Wall -Wextra src/main.cpp -o tictactoe
-\`\`\
+
 
 ## How to run 
 \`\`\`bash
