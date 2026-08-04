@@ -103,26 +103,26 @@ int main() {
             int playerRow = getValidInput("Enter row:");
 
             int playerCol = getValidInput("Enter column:");
-            makeMove(board, playerRow, playerCol, player1Symbol);
-            printBoard(board);
-            if(checkWin(board,player1Symbol)){
-                gameOver = true;
-                cout << "Player1 Wins!";
-                break;
-            }
+            // makeMove(board, playerRow, playerCol, player1Symbol);
+            // printBoard(board);
+            // if(checkWin(board,player1Symbol)){
+            //     gameOver = true;
+            //     cout << "Player1 Wins!";
+            //     break;
+            // }
         }
         else{
             cout << "Player 2 makes a move:" << endl;
             int playerRow = getValidInput("Enter row:");
 
             int playerCol = getValidInput("Enter column:");
-            makeMove(board, playerRow, playerCol, player2Symbol);
-            printBoard(board);
-            if(checkWin(board,player2Symbol)){
-                gameOver = true;
-                cout << "Player2 Wins!";
-                break;
-            }
+            // makeMove(board, playerRow, playerCol, player2Symbol);
+            // printBoard(board);
+            // if(checkWin(board,player2Symbol)){
+            //     gameOver = true;
+            //     cout << "Player2 Wins!";
+            //     break;
+            // }
         }
     }
     if(gameOver == false){
