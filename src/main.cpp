@@ -68,6 +68,17 @@ int getValidInput(string prompt){
     return value;
 }
 
+class Board {
+    private:
+        vector<vector<char>> board;
+    public:
+        Board(){
+            vector<char> row(3, ' '); // template row 
+            board = vector<vector<char>>(3,row); // template columns
+        }
+};
+
+
 int main() {
     cout << "Hello, tic-tac-toe!" << endl;
     cout << "Player 1 choose between X or O: "<< endl;
@@ -82,9 +93,7 @@ int main() {
         player2Symbol = 'X';
     }
 
-    vector<char> row(3, ' '); // template row 
-    vector<vector<char>> board(3,row); // template columns 
-
+    Board gameBoard;
     bool gameOver = false;
 
     for(int move = 0; move < 9; move++){
@@ -94,26 +103,26 @@ int main() {
             int playerRow = getValidInput("Enter row:");
 
             int playerCol = getValidInput("Enter column:");
-            makeMove(board, playerRow, playerCol, player1Symbol);
-            printBoard(board);
-            if(checkWin(board,player1Symbol)){
-                gameOver = true;
-                cout << "Player1 Wins!";
-                break;
-            }
+            // makeMove(board, playerRow, playerCol, player1Symbol);
+            // printBoard(board);
+            // if(checkWin(board,player1Symbol)){
+            //     gameOver = true;
+            //     cout << "Player1 Wins!";
+            //     break;
+            // }
         }
         else{
             cout << "Player 2 makes a move:" << endl;
             int playerRow = getValidInput("Enter row:");
 
             int playerCol = getValidInput("Enter column:");
-            makeMove(board, playerRow, playerCol, player2Symbol);
-            printBoard(board);
-            if(checkWin(board,player2Symbol)){
-                gameOver = true;
-                cout << "Player2 Wins!";
-                break;
-            }
+            // makeMove(board, playerRow, playerCol, player2Symbol);
+            // printBoard(board);
+            // if(checkWin(board,player2Symbol)){
+            //     gameOver = true;
+            //     cout << "Player2 Wins!";
+            //     break;
+            // }
         }
     }
     if(gameOver == false){
